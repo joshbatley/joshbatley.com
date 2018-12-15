@@ -1,0 +1,15 @@
+{
+  "name": "josh-batley.com",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:jbatley/josh-batley.com.git",
+  "author": "Josh Batley <jbatley12@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "parcel-bundler": "^1.10.3"
+  },
+  "scripts": {
+    "dev": "parcel index.html",
+    "build": "parcel build index.html"
+  }
+}
