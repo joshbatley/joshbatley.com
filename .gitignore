@@ -1,10 +1,6 @@
 .DS_Store
 node_modules/
-/dist
-
-.vscode
-
-# Log files
-npm-debug.log*
+dist/
+.parcel-cache/
 yarn-debug.log*
 yarn-error.log*
