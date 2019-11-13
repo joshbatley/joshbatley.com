@@ -1,7 +1,22 @@
 :root {
-  --color: blue;
+  --color-text: #32383e;
+  --font-heading:  'Oswald', sans-serif;
+  --font-body: 'Merriweather', serif;
 }
 
-h1 {
-  color: var(--color);
+html {
+  font-size: 16px;
+  color: var(--color-text);
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  margin: 0.67em 0;
 }
