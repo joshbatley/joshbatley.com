@@ -5,13 +5,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Josh Batley</title>
-
     <link href="styles.css" rel="stylesheet" >
     <link href="assets/favicon.png" rel="shortcut icon" type="images/x-icon" />
-
-    <link href="https://fonts.googleapis.com/css?family=Merriweather|Oswald:700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.typekit.net/ydv0cxq.css">
 </head>
-<body>
-  <h1>Josh Batley</h1>
+<body >
+  <main class="container">
+
+    <h1 class="logo">Josh Batley</h1>
+    <img src="assets/waterfall.jpg" class="banner-large" />
+    <img src="assets/canyon.jpg" class="banner-small" />
+
+    <section class="content">
+      <h2>Lorem ipsum dolor sit amet, consectetur</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut euismod velit quis lacus ullamcorper commodo at sed nibh. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc blandit tellus mi, quis scelerisque nisl condimentum vitae. Vestibulum venenatis feugiat justo. Maecenas quis justo pellentesque, pretium sapien et, eleifend dolor. Donec auctor ex vitae orci eleifend viverra. Nam sit amet pharetra ante, a faucibus urna. Donec odio nisi, eleifend eget urna interdum, pretium cursus risus. Ut a nisl aliquet, pellentesque turpis ut, condimentum quam. Duis lacus sapien, condimentum ac orci non, vehicula consequat leo. Morbi aliquam mi elit, vitae ultrices leo sagittis vitae. Vivamus scelerisque nisl in justo bibendum fermentum. Vivamus nisi elit, bibendum et arcu sed, imperdiet tincidunt ante. Etiam iaculis vulputate enim, ac pretium ligula viverra id. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur interdum at leo eu pharetra.
+      </p>
+    </section>
+
+    <section class="contact">
+      <h3>Contact me</h3>
+      <ul>
+        <li>
+          <a href="mailto:hello@joshbatley.me">
+            <img src="assets/icons/email.svg" width="24" class="icon" />
+            hello@joshbatley.me
+          </a>
+        </li>
+
+        <li>
+          <a href="mailto:hello@joshbatley.me">
+            <img src="assets/icons/github.svg" width="24" class="icon" />
+            GITHUB
+          </a>
+        </li>
+
+        <li>
+          <a href="mailto:hello@joshbatley.me">
+            <img src="assets/icons/linkedin.svg" width="24" class="icon" />
+            LINKEDIN
+          </a>
+        </li>
+
+        <li>
+          <a href="mailto:hello@joshbatley.me">
+            <img src="assets/icons/twitter.svg" width="24" class="icon" />
+            TWITTER
+          </a>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154393012-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-154393012-1');
+
+  let root = document.documentElement;
+  root.addEventListener("touchmove", e => {
+    if (e.touches[0]) {
+      move(e.touches[0]);
+    }
+  });
+  root.addEventListener("mousemove", move);
+  function move(e) {
+    root.style.setProperty("--mouse-x", e.clientX + "px");
+    root.style.setProperty("--mouse-y", e.clientY + "px");
+  }
+</script>
 </body>
 </html>

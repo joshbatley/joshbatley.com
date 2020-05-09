@@ -4,3 +4,4 @@ dist/
 .cache/
 yarn-debug.log*
 yarn-error.log*
+.parcel-cache/
