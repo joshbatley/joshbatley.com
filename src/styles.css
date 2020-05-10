@@ -5,7 +5,7 @@
   --font-heading:  bennet-banner, sans-serif;
 
   /* image parallax */
-  --dampen: 100;
+  --dampen: 500;
   --mouse-x: 0;
   --mouse-y: 0;
   --norm-x: calc(var(--mouse-x) / var(--dampen));
