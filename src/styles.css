@@ -75,16 +75,17 @@ ul, li {
   Customs
 */
 .container {
-  margin: 20px 36px 50px;
+  margin: 20px 36px;
 }
 
 .logo {
   position: relative;
+  margin-bottom: 50px;
 }
 
 .logo::after {
   content: '';
-  width: 50%;
+  width: 25%;
   height: 2px;
   bottom: -10px;
   left: 0;
@@ -128,10 +129,14 @@ ul, li {
   }
   .logo {
     position: absolute;
+    margin-bottom: inherit;
     grid-column-start: 1;
     grid-column-end: 3;
     grid-row-start: 1;
     grid-row-end: 1;
+  }
+  .logo::after {
+    width: 50%;
   }
   .banner-large {
     display: block;
@@ -148,8 +153,7 @@ ul, li {
   }
   .content {
     grid-row-start: 4;
-    grid-row-end: 5;
-
+    grid-row-end: 7;
     grid-column-start: 5;
     grid-column-end: 9;
   }
@@ -168,7 +172,8 @@ ul, li {
 
 @media (min-width: 1024px) {
   .container {
-    grid-template-rows: 80px 200px 100px 200px 50px 1fr;
+    margin: 50px 36px;
+    grid-template-rows: 80px 100px 100px 50px 200px 1fr ;
   }
   .logo {
     grid-row-start: 2;
@@ -176,6 +181,11 @@ ul, li {
   }
   .banner-large {
     grid-row-start: 1;
+    grid-column-end: 8;
+  }
+  .content {
+    grid-row-start: 5;
+    margin-bottom: 20px;
   }
   .contact {
     grid-row-start: 6;

@@ -65,16 +65,11 @@
   gtag('config', 'UA-154393012-1');
 
   let root = document.documentElement;
-  root.addEventListener("touchmove", e => {
-    if (e.touches[0]) {
-      move(e.touches[0]);
-    }
-  });
-  root.addEventListener("mousemove", move);
-  function move(e) {
-    root.style.setProperty("--mouse-x", e.clientX + "px");
-    root.style.setProperty("--mouse-y", e.clientY + "px");
-  }
+  // root.addEventListener("mousemove", function(e) {
+  //   root.style.setProperty("--mouse-x", e.clientX + "px");
+  //   root.style.setProperty("--mouse-y", e.clientY + "px");
+  // });
+
 </script>
 </body>
 </html>
