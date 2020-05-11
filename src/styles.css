@@ -3,15 +3,6 @@
   --accent:#216AE0;
   --font-body:  sweet-sans-pro, serif;
   --font-heading:  bennet-banner, sans-serif;
-
-  /* image parallax */
-  --dampen: 500;
-  --mouse-x: 0;
-  --mouse-y: 0;
-  --norm-x: calc(var(--mouse-x) / var(--dampen));
-  --norm-y: calc(var(--mouse-y) / var(--dampen));
-  --parallax: translate(var(--norm-x), var(--norm-y));
-  --parallax-rev: translate(var(--norm-y), var(--norm-x));
 }
 
 /*
@@ -102,12 +93,7 @@ ul, li {
 }
 
 .banner-large {
-  transform: var(--parallax-rev);
   display: none;
-}
-
-.banner-small {
-  transform: var(--parallax);
 }
 
 .contact {
