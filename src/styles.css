@@ -57,12 +57,14 @@ h1 {
 h2 {
   font-size: 25px;
   line-height: 42px;
+  letter-spacing: 4px;
 }
 
 h3 {
   font-size: 25px;
   line-height: 30px;
   margin: 0 0 1rem;
+  letter-spacing: 4px;
 }
 
 ul, li {
@@ -79,6 +81,7 @@ ul, li {
 }
 
 .logo {
+  letter-spacing: 2px;
   position: relative;
   margin-bottom: 50px;
 }
@@ -113,6 +116,7 @@ ul, li {
 
 .contact li {
   margin-bottom: 10px;
+  letter-spacing: 1px;
 }
 
 .contact .icon {
