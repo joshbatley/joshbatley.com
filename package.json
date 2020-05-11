@@ -14,7 +14,7 @@
   },
   "scripts": {
     "start": "parcel src/index.html",
-    "build": "parcel build src/index.html --no-source-maps",
+    "build": "parcel build src/index.html --no-source-maps && cp robot.txt ./dist/",
     "serve": "serve -p 8080 -s ./dist"
   }
 }
