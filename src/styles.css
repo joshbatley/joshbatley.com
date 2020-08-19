@@ -1,8 +1,7 @@
 :root {
   --color-text: hsl(220, 26%, 14%);
   --accent:#216AE0;
-  --font-body:  sweet-sans-pro, serif;
-  --font-heading:  bennet-banner, sans-serif;
+  --font:  bennet-banner, sans-serif;
 }
 
 /*
@@ -22,12 +21,11 @@ html {
 body {
   margin: 0 auto;
   font-size: 1em;
-  font-family: var(--font-body);
+  font-family: var(--font);
   max-width: 960px;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading);
   margin: 0.67em 0;
 }
 
@@ -47,15 +45,15 @@ h1 {
 
 h2 {
   font-size: 25px;
-  line-height: 42px;
-  letter-spacing: 4px;
+  line-height: 35px;
+  letter-spacing: 2px;
 }
 
 h3 {
   font-size: 25px;
   line-height: 30px;
   margin: 0 0 1rem;
-  letter-spacing: 4px;
+  letter-spacing: 2px;
 }
 
 ul, li {
@@ -116,6 +114,7 @@ ul, li {
   width: 20px;
 }
 
+/* Small */
 @media (min-width: 640px) {
   .container {
     display: grid;
@@ -160,16 +159,21 @@ ul, li {
   }
 }
 
+/* Medium */
 @media (min-width: 768px) {
   .container {
     grid-template-rows: 80px 200px 150px 200px 1fr;
   }
 }
 
+/* Large */
 @media (min-width: 1024px) {
   .container {
     margin: 50px 36px;
     grid-template-rows: 80px 100px 100px 50px 200px 1fr ;
+  }
+  .content-heading {
+    margin-left: -30px;
   }
   .logo {
     grid-row-start: 2;
