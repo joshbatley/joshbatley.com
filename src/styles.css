@@ -1,7 +1,8 @@
 :root {
-  --color-text: hsl(220, 26%, 14%);
+  --color-text: hsl(210, 12%, 17%);
   --accent:#216AE0;
-  --font:  sweet-sans-pro, sans-serif;
+  --font: droid-serif, serif;
+  --font-heading: droid-sans, sans-serif;
 }
 
 /*
@@ -11,7 +12,7 @@
 html {
   font-size: 18px;
   color: var(--color-text);
-  line-height: 32px;
+  line-height: 28px;
   box-sizing: border-box;
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
@@ -26,6 +27,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
   margin: 0.67em 0;
 }
 
@@ -44,9 +46,8 @@ h1 {
 }
 
 h2 {
-  font-size: 25px;
-  line-height: 35px;
-  letter-spacing: 2px;
+  font-size: 38px;
+  line-height: 42px;
 }
 
 h3 {
@@ -67,22 +68,6 @@ ul, li {
 */
 .container {
   margin: 20px 36px;
-}
-
-.logo {
-  letter-spacing: 2px;
-  position: relative;
-  margin-bottom: 50px;
-}
-
-.logo::after {
-  content: '';
-  width: 25%;
-  height: 2px;
-  bottom: -10px;
-  left: 0;
-  position: absolute;
-  background:var(--accent);
 }
 
 .banner-large, .banner-small {
@@ -121,17 +106,6 @@ ul, li {
     grid-template-columns: repeat(8, 1fr);
     column-gap: 15px;
     grid-template-rows: 80px 200px 100px 200px 1fr;
-  }
-  .logo {
-    position: absolute;
-    margin-bottom: inherit;
-    grid-column-start: 1;
-    grid-column-end: 3;
-    grid-row-start: 1;
-    grid-row-end: 1;
-  }
-  .logo::after {
-    width: 50%;
   }
   .banner-large {
     display: block;
@@ -174,10 +148,6 @@ ul, li {
   }
   .content-heading {
     margin-left: -30px;
-  }
-  .logo {
-    grid-row-start: 2;
-    grid-row-end: 2;
   }
   .banner-large {
     grid-row-start: 1;
