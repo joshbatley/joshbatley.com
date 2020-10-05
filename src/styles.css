@@ -1,8 +1,8 @@
 :root {
   --color-text: hsl(210, 12%, 17%);
   --accent:#216AE0;
-  --font: droid-serif, serif;
-  --font-heading: droid-sans, sans-serif;
+  --font: 'Droid Serif', serif;
+  --font-heading: 'Droid Sans', sans-serif;
 }
 
 /*
