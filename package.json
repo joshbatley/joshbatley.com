@@ -9,7 +9,7 @@
     "not dead"
   ],
   "devDependencies": {
-    "parcel": "^2.0.0-alpha.3.2"
+    "parcel": "^2.4.0"
   },
   "scripts": {
     "start": "parcel src/index.html",
