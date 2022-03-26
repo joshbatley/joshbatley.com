@@ -1,7 +1,6 @@
 {
   "name": "josh-batley.com",
   "version": "1.0.0",
-  "main": "dist/index.html",
   "repository": "git@github.com:jbatley/josh-batley.com.git",
   "author": "Josh Batley <jbatley12@gmail.com>",
   "license": "MIT",
