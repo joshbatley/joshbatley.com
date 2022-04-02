@@ -6,7 +6,7 @@ on:
       - main
 
   workflow_dispatch:
-  
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -37,4 +37,4 @@ jobs:
           git config user.name github-actions[bot]
           git add .
           git commit -m "(Github Action): updated docs"
-          git push origin main
+          git push origin main -f
