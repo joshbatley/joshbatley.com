@@ -9,6 +9,8 @@
     "not dead"
   ],
   "devDependencies": {
+    "@parcel/optimizer-data-url": "2.4.0",
+    "@parcel/transformer-inline-string": "2.4.0",
     "parcel": "^2.4.0"
   },
   "scripts": {
