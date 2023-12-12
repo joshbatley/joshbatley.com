@@ -63,6 +63,10 @@ ul, li {
   padding: 0;
 }
 
+img {
+  border-radius: 10px;
+}
+
 /*
   Customs
 */
@@ -71,9 +75,7 @@ ul, li {
 }
 
 .banner-large, .banner-small {
-  border-radius: 10px;
-  width: 100%;
-  
+   width: 100%;
 }
 
 .banner-large {
