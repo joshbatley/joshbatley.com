@@ -71,8 +71,9 @@ ul, li {
 }
 
 .banner-large, .banner-small {
-  border-radius: 2px;
+  border-radius: 10px;
   width: 100%;
+  
 }
 
 .banner-large {
