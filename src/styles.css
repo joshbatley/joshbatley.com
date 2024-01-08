@@ -1,8 +1,8 @@
 :root {
   --color-text: hsl(210, 12%, 17%);
   --accent:#216AE0;
-  --font: 'Droid Serif', serif;
-  --font-heading: 'Droid Sans', sans-serif;
+  --font: 'DM Mono', monospace;
+  --font-heading: 'DM Mono', monospace;
 }
 
 /*
@@ -23,11 +23,13 @@ body {
   margin: 0 auto;
   font-size: 1em;
   font-family: var(--font);
+  font-weight: 400;
   max-width: 960px;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
+  font-weight: 500;
   margin: 0.67em 0;
 }
 
