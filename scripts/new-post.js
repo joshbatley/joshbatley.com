@@ -1,12 +1,13 @@
 const fs = require('fs');
 const path = require('path');
 
-const blogPath = './posts';
-const args = process.argv.slice(2);
-
 const RED = "\x1b[31m";
 const GREEN = "\x1b[32m";
 const BLUE = "\x1b[34m";
+
+const blogPath = './posts';
+
+const args = process.argv.slice(2);
 
 (function main() {
   const title = getTitle();

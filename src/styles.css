@@ -1,17 +1,68 @@
 :root {
-  --color-text: hsl(210, 12%, 17%);
-  --accent: #216AE0;
-  --font: 'DM Mono', monospace;
-  --font-heading: 'DM Mono', monospace;
+  --font-mono: 'DM Mono', SFMono- Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  --font: 'DM Sans', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
+
+/*
+  Theme selector
+*/
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color: hsl(0, 0%, 100%);
+    --background: hsl(240, 10%, 3.9%);
+    --border: hsl(240, 3.7%, 15.9%);
+    --hover: hsl(240, 4%, 16%);
+  }
+
+  body:has(input:checked) {
+    --color: hsl(240, 10%, 3.9%);
+    --background: hsl(0, 0%, 100%);
+    --border: hsl(240, 5.9%, 90%);
+    --hover: hsl(240, 5%, 96%);
+  }
+
+  .theme:checked~.sun {
+    display: none;
+  }
+
+  .theme:not(:checked)~.moon {
+    display: none;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --color: hsl(240, 10%, 3.9%);
+    --background: hsl(0, 0%, 100%);
+    --border: hsl(240, 5.9%, 90%);
+    --hover: hsl(240, 5%, 96%);
+  }
+
+
+  body:has(input:checked) {
+    --color: hsl(0, 0%, 100%);
+    --background: hsl(240, 10%, 3.9%);
+    --border: hsl(240, 3.7%, 15.9%);
+    --hover: hsl(240, 4%, 16%);
+  }
+
+  .theme:checked~.moon {
+    display: none;
+  }
+
+  .theme:not(:checked)~.sun {
+    display: none;
+  }
+}
+
+
+
 
 /*
   Generic - resets
 */
-
 html {
   font-size: 18px;
-  color: var(--color-text);
   line-height: 28px;
   box-sizing: border-box;
   -webkit-text-size-adjust: 100%;
@@ -20,11 +71,13 @@ html {
 }
 
 body {
+  background: var(--background);
+  color: var(--color);
   margin: 0 auto;
   font-size: 1em;
   font-family: var(--font);
-  font-weight: 400;
   max-width: 960px;
+  position: relative;
 }
 
 h1,
@@ -33,23 +86,19 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-heading);
-  font-weight: 500;
+  font-family: var(--font);
+  font-weight: 700;
   margin: 0.67em 0;
 }
 
 a {
   text-decoration: none;
-  color: var(--color-text);
-}
-
-a:hover {
-  color: var(--accent);
+  color: var(--color);
 }
 
 h1 {
-  font-size: 33px;
-  line-height: 42px;
+  font-size: 38px;
+  line-height: 45px;
 }
 
 h2 {
@@ -69,6 +118,7 @@ li {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  color: var(--color);
 }
 
 img {
@@ -92,27 +142,103 @@ img {
 }
 
 .banner-small {
-  box-shadow: white 0 0 0 8px;
+  box-shadow: var(--background) 0 0 0 8px;
 }
 
 .contact {
-  font-size: 16px;
+  font-size: 14px;
+  line-height: 14px;
+}
+
+.contact h3 {
+  margin-left: 12px;
 }
 
 .contact li {
   margin-bottom: 10px;
-  letter-spacing: 2px;
 }
 
-.contact li:hover .icon {
-  fill: var(--accent);
+.contact li a {
+  letter-spacing: 2px;
+  padding: 8px 12px;
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+  height: 20px;
+  font-weight: 500;
+}
+
+.contact li:hover {
+  background: var(--hover);
+  border-radius: 6px;
 }
 
 .contact .icon {
-  margin-right: 10px;
-  margin-bottom: -5px;
+  margin-right: 8px;
+  height: 16px;
+  width: 16px;
+}
+
+.logo-header {
+  text-align: center;
+}
+
+.blog-container li {
+  list-style: disc;
+}
+
+input.theme {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  margin: 0;
+  position: fixed;
+  left: -9999px;
+}
+
+.sun .icon {
   height: 20px;
   width: 20px;
+}
+
+.moon .icon {
+  height: 20px;
+  width: 20px;
+}
+
+.theme-selector {
+  position: absolute;
+  right: 36px;
+  bottom: 0px;
+
+  display: flex;
+  place-content: center;
+  align-items: center;
+
+  border-radius: 6px;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.theme-selector .icon {
+  display: inline-flex;
+}
+
+.theme-selector:hover {
+  background: var(--hover);
+  opacity: 0.8;
+}
+
+.theme-selector .icon {
+  width: 16px;
+  height: 16px;
+}
+
+svg {
+  fill: var(--color);
 }
 
 /* Small */
@@ -151,12 +277,26 @@ img {
     grid-column-start: 1;
     grid-column-end: 4;
   }
+
+  .theme-selector {
+    left: 36px;
+    top: 80px;
+    right: auto;
+    bottom: auto;
+  }
 }
 
 /* Medium */
 @media (min-width: 768px) {
   .container {
     grid-template-rows: 80px 200px 150px 200px 1fr;
+  }
+
+  .theme-selector {
+    left: 36px;
+    top: 80px;
+    right: auto;
+    bottom: auto;
   }
 }
 
@@ -183,5 +323,12 @@ img {
 
   .contact {
     grid-row-start: 6;
+  }
+
+  .theme-selector {
+    left: 36px;
+    right: auto;
+    bottom: auto;
+    top: auto;
   }
 }

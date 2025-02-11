@@ -15,7 +15,7 @@
     "showdown": "^2.1.0"
   },
   "scripts": {
-    "dev": "parcel src/index.html --dist-dir ./_site",
+    "dev": "parcel src/*.html --dist-dir ./_site",
     "build": "pnpm build-site && pnpm move-meta",
     "build-site": "parcel build src/*.html --no-source-maps --dist-dir ./_site",
     "move-meta": "cp ./meta/* ./_site/",
