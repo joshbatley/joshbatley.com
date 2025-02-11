@@ -4,22 +4,29 @@ const path = require('path');
 const showdown = require('showdown');
 
 const converter = new showdown.Converter();
+
+const RED = "\x1b[31m";
+const GREEN = "\x1b[32m";
+const BLUE = "\x1b[34m";
 const blogPath = './posts';
+
 const contentFileName = "contents.html";
 const templatePath = "./src/templates"
-const blogTemplate = path.join(templatePath, '/blog.html');
-const contentsTemplate = path.join(templatePath, '/contents.html');
 const outPath = "./src/blog";
 
+const blogTemplate = path.join(templatePath, '/blog.html');
+const contentsTemplate = path.join(templatePath, '/contents.html');
+
 class PostBuilder {
-  constructor(file, data) {
-    const json = JSON.parse(data.slice(0, data.indexOf('}') + 1).join("\n"));
+  constructor(file, data, isHtmlData) {
+    const json = isHtmlData ? JSON.parse(data.slice(0, data.indexOf('}') + 1).join("\n")) : {};
     this.fileName = file;
-    this.title = json.title;
-    this.date = json.date;
-    this.tags = json.tags;
+    this.title = isHtmlData ? json.title : file;
+    this.date = isHtmlData ? json.date : "";
+    this.tags = isHtmlData ? json.tags : "";
     this.htmlFileName = file.replace('.md', '.html');
-    this.content = data.slice(data.indexOf('}') + 1).join("\n");
+    this.content = isHtmlData ? data.slice(data.indexOf('}') + 1).join("\n") : data;
+    this.isHtmlData = isHtmlData;
   }
 
   headerContent() {
@@ -28,11 +35,12 @@ class PostBuilder {
   }
 
   postContetAsHtml() {
-    return converter.makeHtml(this.content);
+    return this.isHtmlData ? converter.makeHtml(this.content) : this.content;
   }
 
   generateHtmlContent() {
     return {
+      pageTitle: `${this.title} | Josh Batley - Software Engineer`,
       header: this.headerContent(),
       content: this.postContetAsHtml()
     }
@@ -40,8 +48,42 @@ class PostBuilder {
 }
 
 function mapToFileBulder(file) {
-  const lines = fs.readFileSync(path.join(blogPath, file), 'utf-8').split(/\r?\n/);
-  return new PostBuilder(file, lines);
+  try {
+    const data = fs.readFileSync(path.join(blogPath, file), 'utf-8').split(/\r?\n/);
+    return new PostBuilder(file, data, true);
+  } catch (err) {
+    console.log(RED + "Failed to read file. File:", file, "Err", err.message);
+    return;
+  }
+}
+
+function createFileWithReplaceContent(template, fileName, content) {
+  try {
+    let data = fs.readFileSync(template, 'utf8');
+    for (const [k, v] of Object.entries(content)) {
+      data = data.replace(`{${k}}`, v);
+    }
+
+    fs.writeFileSync(path.join(outPath, fileName), data, 'utf8');
+    console.log(BLUE + "- File", fileName, "generated succesfully");
+  } catch (err) {
+    console.log(RED + "Blog post was not created. File:", file, " Error:", err.message);
+    return;
+  }
+};
+
+function generateLink(link, title) {
+  return `<a class="blog-link" href="${link}">${title}</a>`
+}
+
+function createContentsPage(posts) {
+  var body = posts
+    .sort((a, b) => new Date(b.date) - new Date(a.date))
+    .map(k => generateLink(k.htmlFileName, k.title))
+    .join('\n');
+
+  const contentsPage = new PostBuilder("Contents", body, false);
+  createFileWithReplaceContent(contentsTemplate, contentFileName, contentsPage.generateHtmlContent());
 }
 
 function createPosts(file) {
@@ -53,38 +95,20 @@ function createPosts(file) {
   return file;
 }
 
-function createFileWithReplaceContent(template, fileName, content) {
-  let data = fs.readFileSync(template, 'utf8');
-  for (const [k, v] of Object.entries(content)) {
-    data = data.replace(`{${k}}`, v);
-  }
-
-  fs.writeFileSync(path.join(outPath, fileName), data, 'utf8');
-  console.log("File has been created with the replacement.");
-};
-
-
-function createLink(link, title) {
-  return `<a class="blog-link" href="/blog/${link}">${title}</a>`
-}
-
-
-function createContentsPage(posts) {
-  var content = posts
-    .sort((a, b) => new Date(b.date) - new Date(a.date))
-    .map(k => createLink(k.htmlFileName, k.title))
-    .join('\n')
-  createFileWithReplaceContent(contentsTemplate, contentFileName, { content: content });
-}
-
 (function main() {
-  const posts = fs.readdirSync(blogPath, { withFileTypes: true })
-    .filter(dirent => !dirent.isDirectory())
-    .map(dirent => dirent.name)
-    .map(mapToFileBulder)
-    .map(createPosts);
+  try {
+    console.log(BLUE + "Generating Posts");
+    const posts = fs.readdirSync(blogPath, { withFileTypes: true })
+      .filter(dirent => !dirent.isDirectory())
+      .map(dirent => dirent.name)
+      .map(mapToFileBulder)
+      .map(createPosts);
 
-  createContentsPage(posts);
+    createContentsPage(posts);
+    console.log(GREEN + "Generated succesfully");
+    console.log(GREEN + `=== ${posts.length} posts created ===`);
+  } catch (err) {
+    console.log(RED + "Failed to folder", err.message);
+    return;
+  }
 })()
-
-

@@ -8,13 +8,13 @@ const RED = "\x1b[31m";
 const GREEN = "\x1b[32m";
 const BLUE = "\x1b[34m";
 
-function getTile() {
+function getTitle() {
   let title = args.slice(args.indexOf("--title") + 1).join(" ");
   if (stringIsEmpty(title)) {
     console.error(RED + 'Error: The --name argument is required.');
     return;
   }
-  return title;
+  return title.toString();
 }
 
 function stringIsEmpty(str) {
@@ -26,17 +26,23 @@ function generateDate() {
 }
 
 function generateFileName(str) {
-  return `${generateDate()}-${str.replace(" ", + "-")}.md`;
+  return `${generateDate()}-${str.replace(/\s+/g, "-")}.md`;
+}
+
+function capitalizeWords(str) {
+  return str.split(' ').map(word => {
+    return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+  }).join(' ');
 }
 
 function generateContent(title) {
   return `{
-  "title": "${title}",
+  "title": "${capitalizeWords(title)}",
   "date": "${generateDate()}",
   "tags": []
 }
 
-#  ${title}
+#  ${capitalizeWords(title)}
 
 `;
 }
@@ -45,7 +51,7 @@ function createFile(file, title) {
   const filePath = path.join(blogPath, file);
 
   try {
-    console.log(BLUE + "Creating new blog");
+    console.log(BLUE + "Creating new blog post");
     if (fs.existsSync(filePath)) {
       throw new Error("File already exists")
     }
@@ -58,8 +64,7 @@ function createFile(file, title) {
 
 }
 
-
 (function main() {
-  const title = getTile();
+  const title = getTitle();
   createFile(generateFileName(title), title);
 })();
