@@ -1,7 +1,7 @@
 {
-  "name": "josh-batley.com",
+  "name": "joshbatley.com",
   "version": "1.0.0",
-  "repository": "git@github.com:jbatley/josh-batley.com.git",
+  "repository": "git@github.com:jbatley/joshbatley.com.git",
   "author": "Josh Batley <jbatley12@gmail.com>",
   "license": "MIT",
   "browserslist": [

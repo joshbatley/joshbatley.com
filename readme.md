@@ -8,4 +8,4 @@ A little intro website, with my social links.
 
 Q: Why no JavaScript?
 
-A: It's a tiny website for me to throw some line on. See [KISS](https://en.wikipedia.org/wiki/KISS_principle)
+A: It's a tiny website for me to throw some lines on. See [KISS](https://en.wikipedia.org/wiki/KISS_principle)
