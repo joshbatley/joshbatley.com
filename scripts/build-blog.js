@@ -47,6 +47,24 @@ class PostBuilder {
   }
 }
 
+(function main() {
+  try {
+    console.log(BLUE + "Generating Posts");
+    const posts = fs.readdirSync(blogPath, { withFileTypes: true })
+      .filter(dirent => !dirent.isDirectory())
+      .map(dirent => dirent.name)
+      .map(mapToFileBulder)
+      .map(createPosts);
+
+    createContentsPage(posts);
+    console.log(GREEN + "Generated succesfully");
+    console.log(GREEN + `=== ${posts.length} posts created ===`);
+  } catch (err) {
+    console.log(RED + "Failed to folder", err.message);
+    return;
+  }
+})()
+
 function mapToFileBulder(file) {
   try {
     const data = fs.readFileSync(path.join(blogPath, file), 'utf-8').split(/\r?\n/);
@@ -55,6 +73,25 @@ function mapToFileBulder(file) {
     console.log(RED + "Failed to read file. File:", file, "Err", err.message);
     return;
   }
+}
+
+function createPosts(file) {
+  createFileWithReplaceContent(
+    blogTemplate,
+    file.htmlFileName,
+    file.generateHtmlContent(),
+  );
+  return file;
+}
+
+function createContentsPage(posts) {
+  var body = posts
+    .sort((a, b) => new Date(b.date) - new Date(a.date))
+    .map(k => generateLink(k.htmlFileName, k.title))
+    .join('\n');
+
+  const contentsPage = new PostBuilder("Contents", body, false);
+  createFileWithReplaceContent(contentsTemplate, contentFileName, contentsPage.generateHtmlContent());
 }
 
 function createFileWithReplaceContent(template, fileName, content) {
@@ -73,42 +110,5 @@ function createFileWithReplaceContent(template, fileName, content) {
 };
 
 function generateLink(link, title) {
-  return `<a class="blog-link" href="${link}">${title}</a>`
+  return `<li><a class="blog-link" href="${link}">${title}</a></li>`
 }
-
-function createContentsPage(posts) {
-  var body = posts
-    .sort((a, b) => new Date(b.date) - new Date(a.date))
-    .map(k => generateLink(k.htmlFileName, k.title))
-    .join('\n');
-
-  const contentsPage = new PostBuilder("Contents", body, false);
-  createFileWithReplaceContent(contentsTemplate, contentFileName, contentsPage.generateHtmlContent());
-}
-
-function createPosts(file) {
-  createFileWithReplaceContent(
-    blogTemplate,
-    file.htmlFileName,
-    file.generateHtmlContent(),
-  );
-  return file;
-}
-
-(function main() {
-  try {
-    console.log(BLUE + "Generating Posts");
-    const posts = fs.readdirSync(blogPath, { withFileTypes: true })
-      .filter(dirent => !dirent.isDirectory())
-      .map(dirent => dirent.name)
-      .map(mapToFileBulder)
-      .map(createPosts);
-
-    createContentsPage(posts);
-    console.log(GREEN + "Generated succesfully");
-    console.log(GREEN + `=== ${posts.length} posts created ===`);
-  } catch (err) {
-    console.log(RED + "Failed to folder", err.message);
-    return;
-  }
-})()
