@@ -11,13 +11,16 @@
   "devDependencies": {
     "@parcel/optimizer-data-url": "^2.13.3",
     "@parcel/transformer-inline-string": "^2.13.3",
-    "parcel": "^2.13.3"
+    "parcel": "^2.13.3",
+    "showdown": "^2.1.0"
   },
   "scripts": {
     "dev": "parcel src/index.html --dist-dir ./_site",
     "build": "pnpm build-site && pnpm move-meta",
     "build-site": "parcel build src/*.html --no-source-maps --dist-dir ./_site",
     "move-meta": "cp ./meta/* ./_site/",
-    "serve": "serve -p 8080 -s ./_site"
+    "serve": "serve -p 8080 -S ./_site",
+    "new-post": "node ./scripts/new-post.js --title",
+    "build-blog": "node ./scripts/build-blog.js --title"
   }
 }
