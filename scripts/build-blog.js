@@ -104,7 +104,7 @@ function createPosts(file) {
 function createContentsPage(posts) {
   var body = posts
     .sort((a, b) => new Date(b.date) - new Date(a.date))
-    .map(k => generateLink(k.htmlFileName, k.title))
+    .map(k => generateLink(k))
     .join('\n');
 
   const contentsPage = new PostBuilder("Contents", body, false);
@@ -126,8 +126,13 @@ function createFileWithReplaceContent(template, fileName, content) {
   }
 };
 
-function generateLink(link, title) {
-  return `<li><a class="blog-link" href="${link}">${title}</a></li>`
+function generateLink(post) {
+  return `<li class="blog-item">
+    <a class="blog-link" href="${post.htmlFileName}">
+      ${post.title}
+    </a>
+    <span class="blog-date">${fns.format(new Date(post.date || Date.now()), 'EE do MMMM yyyy')}</span>
+</li>`
 }
 
 function createSitemap(posts) {
