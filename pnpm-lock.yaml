@@ -14,6 +14,9 @@ importers:
       '@parcel/transformer-inline-string':
         specifier: ^2.13.3
         version: 2.13.3(@parcel/core@2.13.3(@swc/helpers@0.5.15))
+      date-fns:
+        specifier: ^4.1.0
+        version: 4.1.0
       parcel:
         specifier: ^2.13.3
         version: 2.13.3(@swc/helpers@0.5.15)
@@ -559,6 +562,9 @@ packages:
     peerDependenciesMeta:
       typescript:
         optional: true
+
+  date-fns@4.1.0:
+    resolution: {integrity: sha512-Ukq0owbQXxa/U3EGtsdVBkR1w7KOQ5gIBqdH2hkvknzZPYvBxb/aa6E8L7tmjFtkwZBu3UXBbjIgPo/Ez4xaNg==}
 
   detect-libc@1.0.3:
     resolution: {integrity: sha512-pGjwhsmsp4kL2RTz08wcOlGN83otlqHeD/Z5T8GXZB+/YcpQ/dgo+lbU8ZsGxV0HIvqqxo9l7mqYwyYMD9bKDg==}
@@ -1701,6 +1707,8 @@ snapshots:
       import-fresh: 3.3.1
       js-yaml: 4.1.0
       parse-json: 5.2.0
+
+  date-fns@4.1.0: {}
 
   detect-libc@1.0.3: {}
 

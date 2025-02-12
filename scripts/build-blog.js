@@ -2,6 +2,7 @@ const fs = require('fs');
 const readline = require('readline');
 const path = require('path');
 const showdown = require('showdown');
+const fns = require('date-fns');
 
 const RED = "\x1b[31m";
 const GREEN = "\x1b[32m";
@@ -39,11 +40,21 @@ class PostBuilder {
     return this.isHtmlData ? converter.makeHtml(this.content) : this.content;
   }
 
+  generateMetaHtml() {
+    return `<div class="blog-meta">
+  <p class="blog-date">${fns.format(new Date(this.date || Date.now()), 'EE do MMMM yyyy')}</p>
+</div>`;
+  }
+
   generateHtmlContent() {
     return {
+      content: this.postContetAsHtml(),
       pageTitle: `${this.title} ${pageTitleBase}`,
+      title: this.title,
+      date: this.date,
+      tags: this.tags,
+      [`<p>{meta}</p>`]: this.generateMetaHtml(),
       header: this.headerContent(),
-      content: this.postContetAsHtml()
     }
   }
 }
@@ -65,7 +76,7 @@ class PostBuilder {
     createSitemap(posts);
     console.log(GREEN + "Generated sitemap succesfully");
   } catch (err) {
-    console.log(RED + "Failed to folder", err.message);
+    console.log(RED + "Failed to create file", err.message);
     return;
   }
 })()
@@ -104,7 +115,7 @@ function createFileWithReplaceContent(template, fileName, content) {
   try {
     let data = fs.readFileSync(template, 'utf8');
     for (const [k, v] of Object.entries(content)) {
-      data = data.replace(`{${k}}`, v);
+      data = data.replace(k.includes('{') ? k : `{${k}}`, v);
     }
 
     fs.writeFileSync(path.join(outPath, fileName), data, 'utf8');
