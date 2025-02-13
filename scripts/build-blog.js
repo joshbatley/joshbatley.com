@@ -140,7 +140,7 @@ function createFileWithReplaceContent(template, fileName, content) {
     console.log(BLUE + "- File", fileName, "generated succesfully");
   } catch (err) {
     console.log(RED + "Blog post was not created. File:", file, " Error:", err.message);
-    return;
+    process.exit(1);
   }
 };
 
