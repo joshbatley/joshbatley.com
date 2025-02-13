@@ -1,0 +1,279 @@
+/*
+  Container
+*/
+.container {
+  padding: 0 16px;
+  margin: 50px 36px 20px;
+  height: auto;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/*
+  Header
+*/
+.header {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 0;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.header .container {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.header .logo-link {
+  margin-bottom: 0;
+  margin-top: 10px;
+}
+
+.header .title {
+  color: var(--muted);
+}
+
+.header .links {
+  display: flex;
+  display: inline-flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.header .link {
+  color: var(--text);
+  letter-spacing: 2px;
+  padding: 8px 12px;
+  display: inline-flex;
+  align-items: center;
+  height: 20px;
+  font-weight: 500;
+  opacity: 1;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.header .link:hover {
+  background: var(--hover);
+}
+
+.header .icon {
+  height: 16px;
+  width: 16px;
+}
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+}
+
+.icon.back {
+  height: 16px;
+  width: 16px;
+  margin: 0 8px;
+}
+
+/*
+  .contents apge
+*/
+.contents {
+  min-height: calc(100vh - 143px);
+  display: flex;
+  flex-direction: column;
+}
+
+.post-items {
+  margin: 30px auto;
+}
+
+.post-item {
+  display: flex;
+}
+
+.post-link {
+  width: 100%;
+  padding: 8px 12px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  transition: opacity 50ms ease-in;
+  margin: 0 0 20px;
+}
+
+.post-link:hover {
+  opacity: 0.5;
+}
+
+.post-title {
+  font-size: 20px;
+  margin: 4px 0;
+}
+
+.post-snippet {
+  margin: 4px 0;
+}
+
+.post-snippet {
+  font-size: 14px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  color: var(--muted);
+}
+
+.post-snippet:empty {
+  display: none;
+}
+
+.post-date {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/*
+  Blog page
+*/
+.blog-content {
+  min-height: calc(100vh - 143px);
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-content h1:first-of-type {
+  margin-bottom: 0;
+}
+
+.blog-meta .blog-date {
+  color: var(--muted);
+  margin: 0;
+}
+
+.blog-content img {
+  width: 100%;
+}
+
+.blog-content a {
+  text-decoration: underline;
+}
+
+.blog-content ol,
+.blog-content ul {
+  margin: revert;
+  padding-left: 20px;
+}
+
+.blog-content ol li {
+  list-style: auto;
+}
+
+.blog-content ul li {
+  list-style: disc;
+}
+
+.blog-content li::marker {
+  color: var(--muted);
+}
+
+.blog-content hr {
+  border-color: var(--border);
+}
+
+.blog-content blockquote {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin: 0;
+  padding: 0px 16px;
+}
+
+/*
+  Footer
+*/
+.contact {
+  display: flex;
+  flex-direction: column;
+  margin: 30px auto 20px;
+}
+
+.contact-title {
+  width: 100%;
+  text-align: center;
+}
+
+.contact .icon {
+  width: 16px;
+  height: 16px;
+}
+
+.contact .links {
+  display: inline-flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact .link {
+  color: var(--text);
+  letter-spacing: 2px;
+  padding: 8px 12px;
+  display: inline-flex;
+  align-items: center;
+  height: 20px;
+  font-weight: 500;
+  opacity: 1;
+  border-radius: 6px;
+}
+
+.contact .links:hover {
+  background: var(--hover);
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding: 0 32px;
+  }
+
+  .header {
+    margin-top: 0px;
+  }
+
+  .header .logo-link {
+    margin-top: 0;
+  }
+
+  .header .container {
+    justify-content: space-between;
+    flex-direction: row;
+  }
+
+  .header .links {
+    margin-top: 0;
+  }
+
+  .contact {
+    flex-direction: row;
+  }
+
+  .contact-title {
+    text-align: left;
+    margin-bottom: 0;
+  }
+
+  .contact .links {
+    justify-content: right;
+  }
+
+  .post-link {
+    padding: 16px 24px;
+  }
+}

@@ -14,9 +14,15 @@ importers:
       '@parcel/transformer-inline-string':
         specifier: ^2.13.3
         version: 2.13.3(@parcel/core@2.13.3(@swc/helpers@0.5.15))
+      date-fns:
+        specifier: ^4.1.0
+        version: 4.1.0
       parcel:
         specifier: ^2.13.3
         version: 2.13.3(@swc/helpers@0.5.15)
+      showdown:
+        specifier: ^2.1.0
+        version: 2.1.0
 
 packages:
 
@@ -544,6 +550,10 @@ packages:
     resolution: {integrity: sha512-Vw8qHK3bZM9y/P10u3Vib8o/DdkvA2OtPtZvD871QKjy74Wj1WSKFILMPRPSdUSx5RFK1arlJzEtA4PkFgnbuA==}
     engines: {node: '>=18'}
 
+  commander@9.5.0:
+    resolution: {integrity: sha512-KRs7WVDKg86PWiuAqhDrAQnTXZKraVcCc6vFdL14qrZ/DcWwuRo7VoiYXalXO7S5GKpqYiVEwCbgFDfxNHKJBQ==}
+    engines: {node: ^12.20.0 || >=14}
+
   cosmiconfig@9.0.0:
     resolution: {integrity: sha512-itvL5h8RETACmOTFc4UfIyB2RfEHi71Ax6E/PivVxq9NseKbOWpeyHEOIbmAw1rs8Ak0VursQNww7lf7YtUwzg==}
     engines: {node: '>=14'}
@@ -552,6 +562,9 @@ packages:
     peerDependenciesMeta:
       typescript:
         optional: true
+
+  date-fns@4.1.0:
+    resolution: {integrity: sha512-Ukq0owbQXxa/U3EGtsdVBkR1w7KOQ5gIBqdH2hkvknzZPYvBxb/aa6E8L7tmjFtkwZBu3UXBbjIgPo/Ez4xaNg==}
 
   detect-libc@1.0.3:
     resolution: {integrity: sha512-pGjwhsmsp4kL2RTz08wcOlGN83otlqHeD/Z5T8GXZB+/YcpQ/dgo+lbU8ZsGxV0HIvqqxo9l7mqYwyYMD9bKDg==}
@@ -879,6 +892,10 @@ packages:
   semver@7.7.1:
     resolution: {integrity: sha512-hlq8tAfn0m/61p4BVRcPzIGr6LKiMwo4VM6dGi6pt4qcRkmNzTcWq6eCEjEh+qXjkMDvPlOFFSGwQjoEa6gyMA==}
     engines: {node: '>=10'}
+    hasBin: true
+
+  showdown@2.1.0:
+    resolution: {integrity: sha512-/6NVYu4U819R2pUIk79n67SYgJHWCce0a5xTP979WbNp0FL9MN1I1QK662IDU1b6JzKTvmhgI7T7JYIxBi3kMQ==}
     hasBin: true
 
   srcset@4.0.0:
@@ -1682,12 +1699,16 @@ snapshots:
 
   commander@12.1.0: {}
 
+  commander@9.5.0: {}
+
   cosmiconfig@9.0.0:
     dependencies:
       env-paths: 2.2.1
       import-fresh: 3.3.1
       js-yaml: 4.1.0
       parse-json: 5.2.0
+
+  date-fns@4.1.0: {}
 
   detect-libc@1.0.3: {}
 
@@ -1990,6 +2011,10 @@ snapshots:
   safe-buffer@5.2.1: {}
 
   semver@7.7.1: {}
+
+  showdown@2.1.0:
+    dependencies:
+      commander: 9.5.0
 
   srcset@4.0.0: {}
 
