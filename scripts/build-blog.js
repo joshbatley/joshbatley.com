@@ -100,6 +100,7 @@ class PostBuilder {
 function mapToFileBulder(file) {
   try {
     const data = fs.readFileSync(path.join(blogPath, file), 'utf-8').split(/\r?\n/);
+    console.log(file);
     return new PostBuilder(file, data, true);
   } catch (err) {
     console.log(RED + "Failed to read file. File:", file, "Err", err.message);
