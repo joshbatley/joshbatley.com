@@ -92,7 +92,7 @@ class PostBuilder {
     console.log(GREEN + "Generated sitemap succesfully");
   } catch (err) {
     console.log(RED + "Failed to create file", err.message);
-    return;
+    process.exit(1);
   }
 })()
 
