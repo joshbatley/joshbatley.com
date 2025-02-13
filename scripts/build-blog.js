@@ -100,7 +100,6 @@ class PostBuilder {
 function mapToFileBulder(file) {
   try {
     const data = fs.readFileSync(path.join(blogPath, file), 'utf-8').split(/\r?\n/);
-    console.log(file);
     return new PostBuilder(file, data, true);
   } catch (err) {
     console.log(RED + "Failed to read file. File:", file, "Err", err.message);
@@ -134,12 +133,8 @@ function createFileWithReplaceContent(template, fileName, content) {
       data = data.replace(k.includes('{') ? k : `{${k}}`, v);
     }
 
-
-    console.log(path.join(outPath, fileName));
-    fs.writeFile(path.join(outPath, fileName), data, 'utf8', (err) => { })
-    console.log("=" + path.join(outPath, fileName));
+    fs.writeFileSync(path.join(outPath, fileName), data, 'utf8');
     console.log(BLUE + "- File", fileName, "generated succesfully");
-
   } catch (err) {
     console.log(RED + "Blog post was not created. File:", file, " Error:", err.message);
     process.exit(1);

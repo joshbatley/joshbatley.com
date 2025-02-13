@@ -17,11 +17,12 @@
   },
   "scripts": {
     "dev": "parcel src/*.html --dist-dir ./_site",
-    "build": "pnpm build-blog && pnpm build-site && pnpm move-meta",
+    "build": "pnpm setup-folders && pnpm build-blog && pnpm build-site && pnpm move-meta",
     "build-site": "parcel build src/*.html --no-source-maps --dist-dir ./_site",
     "move-meta": "cp ./meta/* ./_site/",
     "serve": "serve -p 8080 -S ./_site",
     "new-post": "node ./scripts/new-post.js --title",
-    "build-blog": "mkdir -p _site && node ./scripts/build-blog.js"
+    "build-blog": "node ./scripts/build-blog.js",
+    "setup-folders": "mkdir -p _site && mkdir -p src/blog"
   }
 }
