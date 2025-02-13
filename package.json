@@ -22,6 +22,6 @@
     "move-meta": "cp ./meta/* ./_site/",
     "serve": "serve -p 8080 -S ./_site",
     "new-post": "node ./scripts/new-post.js --title",
-    "build-blog": "node ./scripts/build-blog.js --title"
+    "build-blog": "mkdir -p _site && node ./scripts/build-blog.js"
   }
 }
