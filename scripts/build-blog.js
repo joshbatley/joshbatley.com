@@ -129,12 +129,12 @@ function createContentsPage(posts) {
 
 function createFileWithReplaceContent(template, fileName, content) {
   try {
-    console.log(template);
     let data = fs.readFileSync(template, 'utf8');
     for (const [k, v] of Object.entries(content)) {
       data = data.replace(k.includes('{') ? k : `{${k}}`, v);
     }
 
+    console.log(data);
     fs.writeFileSync(path.join(outPath, fileName), data, 'utf8');
     console.log(BLUE + "- File", fileName, "generated succesfully");
   } catch (err) {
