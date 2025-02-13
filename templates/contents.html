@@ -116,18 +116,7 @@
     </ul>
   </footer>
 
-  <script>
-    function updateLocalStorage(isChecked) {
-      localStorage.setItem('joshbatley.theme.changed', isChecked.toString());
-    }
-
-    document.addEventListener('DOMContentLoaded', function () {
-      var storedState = localStorage.getItem('joshbatley.theme.changed');
-      var isChecked = storedState === null ? false : storedState === 'true';
-      console.log(isChecked);
-      document.getElementById('theme-selector').checked = isChecked;
-    });
-  </script>
+  <script src="../theme.js"></script>
 
 </body>
 
