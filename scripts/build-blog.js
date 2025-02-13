@@ -10,7 +10,7 @@ const BLUE = "\x1b[34m";
 
 const blogPath = './posts';
 const contentFileName = "contents.html";
-const templatePath = "./src/templates"
+const templatePath = "./templates"
 const outPath = "./src/blog";
 const baseUrl = "https://joshbatley.com/";
 const pageTitleBase = '| Josh Batley - Software Engineer';
@@ -27,6 +27,7 @@ class PostBuilder {
     this.date = isHtmlData ? json.date : "";
     this.tags = isHtmlData ? json.tags : "";
     this.htmlFileName = file.replace('.md', '.html');
+    this.link = file.replace('.md', '');
     this.content = isHtmlData ? data.slice(data.indexOf('}') + 1).join("\n") : data;
     this.isHtmlData = isHtmlData;
     this.snippet = isHtmlData ? this.generateSnipper(data.slice(data.indexOf('}') + 1).join("\n")) : "";
@@ -143,7 +144,7 @@ function createFileWithReplaceContent(template, fileName, content) {
 
 function generateLink(post) {
   return `<li class="post-item">
-  <a class="post-link" href="${post.htmlFileName}">
+  <a class="post-link" href="${post.link}">
     <p class="post-title">${post.title}</p>
     <p class="post-snippet">${post.snippet}</p>
     <span class="post-date">${fns.format(new Date(post.date || Date.now()), 'EE do MMMM yyyy')}</span>

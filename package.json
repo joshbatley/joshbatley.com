@@ -18,7 +18,7 @@
   "scripts": {
     "dev": "parcel src/*.html --dist-dir ./_site",
     "build": "pnpm setup-folders && pnpm build-blog && pnpm build-site && pnpm move-meta",
-    "build-site": "parcel build src/*.html --no-source-maps --dist-dir ./_site",
+    "build-site": "parcel build src/*.html src/**/*.html --no-source-maps --dist-dir ./_site",
     "move-meta": "cp ./meta/* ./_site/",
     "serve": "serve -p 8080 -S ./_site",
     "new-post": "node ./scripts/new-post.js --title",
