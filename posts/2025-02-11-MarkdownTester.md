@@ -1,10 +1,10 @@
 {
-  "title": "MarkDown Tester",
+  "title": "Mark Down Showcase",
   "date": "2026-02-11",
   "tags": ["code", "design", "hello world"]
 }
 
-#  Testing More Then One Aa
+#  Mark Down Showcase
 
 {meta}
 
