@@ -91,7 +91,7 @@ class PostBuilder {
     createSitemap(posts);
     console.log(GREEN + "Generated sitemap succesfully");
   } catch (err) {
-    console.log(RED + "Failed to create file", err.message);
+    console.log(RED + "Failed to create file. Err:", err.message);
     process.exit(1);
   }
 })()
@@ -134,10 +134,16 @@ function createFileWithReplaceContent(template, fileName, content) {
       data = data.replace(k.includes('{') ? k : `{${k}}`, v);
     }
 
-    console.log(path.join(outPath, fileName));
-    fs.writeFileSync(path.join(outPath, fileName), data, 'utf8');
-    console.log("=" + path.join(outPath, fileName));
-    console.log(BLUE + "- File", fileName, "generated succesfully");
+    try {
+      console.log(path.join(outPath, fileName));
+      fs.writeFileSync(path.join(outPath, fileName), data, 'utf8');
+      console.log("=" + path.join(outPath, fileName));
+      console.log(BLUE + "- File", fileName, "generated succesfully");
+    } catch (err) {
+      console.log(RED + "Blog post was not created. File:", file, " Error:", err.message);
+      process.exit(1);
+    }
+
   } catch (err) {
     console.log(RED + "Blog post was not created. File:", file, " Error:", err.message);
     process.exit(1);
