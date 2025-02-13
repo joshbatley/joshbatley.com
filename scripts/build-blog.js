@@ -134,8 +134,9 @@ function createFileWithReplaceContent(template, fileName, content) {
       data = data.replace(k.includes('{') ? k : `{${k}}`, v);
     }
 
-    console.log(data);
+    console.log(path.join(outPath, fileName));
     fs.writeFileSync(path.join(outPath, fileName), data, 'utf8');
+    console.log("=" + path.join(outPath, fileName));
     console.log(BLUE + "- File", fileName, "generated succesfully");
   } catch (err) {
     console.log(RED + "Blog post was not created. File:", file, " Error:", err.message);
