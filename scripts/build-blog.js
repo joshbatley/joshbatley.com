@@ -109,12 +109,12 @@ function mapToFileBulder(file) {
 }
 
 function createPosts(file) {
+  console.log("--", file);
   createFileWithReplaceContent(
     blogTemplate,
     file.htmlFileName,
     file.generateHtmlContent(),
   );
-  console.log("--", file);
   return file;
 }
 
