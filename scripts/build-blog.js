@@ -109,7 +109,6 @@ function mapToFileBulder(file) {
 }
 
 function createPosts(file) {
-  console.log("--", file);
   createFileWithReplaceContent(
     blogTemplate,
     file.htmlFileName,
@@ -130,6 +129,7 @@ function createContentsPage(posts) {
 
 function createFileWithReplaceContent(template, fileName, content) {
   try {
+    console.log(template);
     let data = fs.readFileSync(template, 'utf8');
     for (const [k, v] of Object.entries(content)) {
       data = data.replace(k.includes('{') ? k : `{${k}}`, v);
