@@ -29,6 +29,7 @@ class PostBuilder {
     this.htmlFileName = file.replace('.md', '.html');
     this.content = isHtmlData ? data.slice(data.indexOf('}') + 1).join("\n") : data;
     this.isHtmlData = isHtmlData;
+    this.snippet = isHtmlData ? this.generateSnipper(data.slice(data.indexOf('}') + 1).join("\n")) : "";
   }
 
   headerContent() {
@@ -38,6 +39,20 @@ class PostBuilder {
 
   postContetAsHtml() {
     return this.isHtmlData ? converter.makeHtml(this.content) : this.content;
+  }
+
+  generateSnipper(content) {
+    let snippet = "";
+    for (let i of content.split("\n")) {
+      if (snippet !== "") {
+        break;
+      }
+      if (i == "" || i.startsWith("#") || i.startsWith("{")) {
+        continue;
+      }
+      snippet += i;
+    }
+    return snippet;
   }
 
   generateMetaHtml() {
@@ -127,11 +142,12 @@ function createFileWithReplaceContent(template, fileName, content) {
 };
 
 function generateLink(post) {
-  return `<li class="blog-item">
-    <a class="blog-link" href="${post.htmlFileName}">
-      ${post.title}
-    </a>
-    <span class="blog-date">${fns.format(new Date(post.date || Date.now()), 'EE do MMMM yyyy')}</span>
+  return `<li class="post-item">
+  <a class="post-link" href="${post.htmlFileName}">
+    <p class="post-title">${post.title}</p>
+    <p class="post-snippet">${post.snippet}</p>
+    <span class="post-date">${fns.format(new Date(post.date || Date.now()), 'EE do MMMM yyyy')}</span>
+  </a>
 </li>`
 }
 

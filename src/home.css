@@ -58,7 +58,46 @@ main {
   width: 16px;
 }
 
+.sun .icon {
+  height: 20px;
+  width: 20px;
+}
 
+.moon .icon {
+  height: 20px;
+  width: 20px;
+}
+
+.theme-selector {
+  position: absolute;
+  right: 36px;
+  bottom: 0px;
+
+  display: flex;
+  place-content: center;
+  align-items: center;
+
+  border-radius: 6px;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.theme-selector .icon {
+  display: inline-flex;
+}
+
+.theme-selector:hover {
+  background: var(--hover);
+  opacity: 0.8;
+}
+
+.theme-selector .icon {
+  width: 16px;
+  height: 16px;
+}
 
 /* Small */
 @media (min-width: 640px) {

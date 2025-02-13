@@ -60,6 +60,7 @@ function generateContent(title) {
 
 #  ${capitalizeWords(title)}
 
+{meta}
 `;
 }
 

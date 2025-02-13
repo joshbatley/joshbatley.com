@@ -4,7 +4,7 @@
 }
 
 /*
-  Theme selector
+  Theme
 */
 @media (prefers-color-scheme: dark) {
   :root {
@@ -13,6 +13,7 @@
     --border: hsl(240, 3.7%, 15.9%);
     --hover: hsl(240, 4%, 16%);
     --muted: hsl(240, 5%, 64.9%);
+    --card: hsl(240 4% 10%);
   }
 
   body:has(input:checked) {
@@ -21,13 +22,14 @@
     --border: hsl(240, 5.9%, 90%);
     --hover: hsl(240, 5%, 96%);
     --muted: hsl(240, 3.8%, 46.1%);
+    --card: hsl(0, 0%, 98%);
   }
 
-  .theme:checked~.sun {
+  .hidden:checked~.sun {
     display: none;
   }
 
-  .theme:not(:checked)~.moon {
+  .hidden:not(:checked)~.moon {
     display: none;
   }
 }
@@ -39,6 +41,7 @@
     --border: hsl(240, 5.9%, 90%);
     --hover: hsl(240, 5%, 96%);
     --muted: hsl(240, 3.8%, 46.1%);
+    --card: hsl(0, 0%, 98%);
   }
 
 
@@ -48,13 +51,14 @@
     --border: hsl(240, 3.7%, 15.9%);
     --hover: hsl(240, 4%, 16%);
     --muted: hsl(240, 5%, 64.9%);
+    --card: hsl(240 4% 10%);
   }
 
-  .theme:checked~.moon {
+  .hidden:checked~.moon {
     display: none;
   }
 
-  .theme:not(:checked)~.sun {
+  .hidden:not(:checked)~.sun {
     display: none;
   }
 }
@@ -62,7 +66,6 @@
 /*
   Generic - resets
 */
-
 body {
   background: var(--background);
   color: var(--text);
@@ -122,7 +125,6 @@ li {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  color: var(--text);
 }
 
 img {
@@ -133,55 +135,23 @@ svg {
   fill: var(--text);
 }
 
-/*
-  Theme selector
-*/
-input.theme {
+pre {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  font-size: 14px;
+  font-family: var(--font-mono);
+}
+
+pre code {
+  font-family: var(--font-mono);
+}
+
+.hidden {
   opacity: 0;
   width: 0;
   height: 0;
   margin: 0;
   position: fixed;
   left: -9999px;
-}
-
-.sun .icon {
-  height: 20px;
-  width: 20px;
-}
-
-.moon .icon {
-  height: 20px;
-  width: 20px;
-}
-
-.theme-selector {
-  position: absolute;
-  right: 36px;
-  bottom: 0px;
-
-  display: flex;
-  place-content: center;
-  align-items: center;
-
-  border-radius: 6px;
-  padding: 8px 12px;
-  border: 1px solid var(--border);
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
-  height: 24px;
-  cursor: pointer;
-}
-
-.theme-selector .icon {
-  display: inline-flex;
-}
-
-.theme-selector:hover {
-  background: var(--hover);
-  opacity: 0.8;
-}
-
-.theme-selector .icon {
-  width: 16px;
-  height: 16px;
 }
