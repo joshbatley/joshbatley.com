@@ -175,7 +175,7 @@ function generateStaticUrlsSitemap() {
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>${baseUrl}blog/contents</loc>
+    <loc>${baseUrl}blog</loc>
     <lastmod>${generateDate()}</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
