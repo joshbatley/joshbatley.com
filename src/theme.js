@@ -21,4 +21,5 @@ function updateCodeHightlighting(preferDark) {
     themeLink.href = "https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/github.min.css"
   }
 }
+
 hljs.highlightAll();
