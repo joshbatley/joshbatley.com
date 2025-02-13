@@ -5,13 +5,13 @@ document.addEventListener('DOMContentLoaded', function () {
   var isChecked = storedState === null ? false : storedState === 'true';
   document.getElementById('theme-selector').checked = isChecked;
   updateCodeHightlighting(isChecked ? !preferDark : preferDark);
-
 });
 
-function updateLocalStorage(isChecked) {
+document.getElementById('theme-selector').addEventListener('change', (event) => {
+  var isChecked = event.target.checked;
   localStorage.setItem('joshbatley.theme.changed', isChecked.toString());
   updateCodeHightlighting(isChecked ? !preferDark : preferDark);
-}
+});
 
 function updateCodeHightlighting(preferDark) {
   const themeLink = document.getElementById('codeHighlighting');
