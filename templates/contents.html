@@ -116,6 +116,14 @@
 
     </ul>
   </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var storedState = localStorage.getItem('joshbatley.theme.changed');
+      var isChecked = storedState === null ? false : storedState === 'true';
+      document.getElementById('theme-selector').checked = isChecked;
+    });
+  </script>
 </body>
 
 </html>
