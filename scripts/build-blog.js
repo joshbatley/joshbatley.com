@@ -9,7 +9,7 @@ const GREEN = "\x1b[32m";
 const BLUE = "\x1b[34m";
 
 const blogPath = './posts';
-const contentFileName = "contents.html";
+const contentFileName = "index.html";
 const templatePath = "./templates"
 const outPath = "./src/blog";
 const baseUrl = "https://joshbatley.com/";
