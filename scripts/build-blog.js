@@ -114,6 +114,7 @@ function createPosts(file) {
     file.htmlFileName,
     file.generateHtmlContent(),
   );
+  console.log("--", file);
   return file;
 }
 
