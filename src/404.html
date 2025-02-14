@@ -36,9 +36,19 @@
       text-decoration: underline;
     }
   </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const storedState = localStorage.getItem('joshbatley.theme.changed');
+      const isChecked = storedState === null ? false : storedState === 'true';
+      document.getElementById('theme-selector').checked = isChecked;
+    });
+  </script>
 </head>
 
 <body>
+
+  <input class="hidden" id="theme-selector" type="checkbox"
+    onchange="((isChecked) => localStorage.setItem('joshbatley.theme.changed', isChecked.toString()))(this.checked)">
 
   <main class="centered">
     <h1>Woops no content found here</h1>
