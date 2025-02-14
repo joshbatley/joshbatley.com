@@ -1,5 +1,12 @@
 const preferDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
+document.addEventListener('DOMContentLoaded', function () {
+  var storedState = localStorage.getItem('joshbatley.theme.changed');
+  var isChecked = storedState === null ? false : storedState === 'true';
+  document.getElementById('theme-selector').checked = isChecked;
+  updateCodeHightlighting(isChecked ? !preferDark : preferDark);
+});
+
 document.getElementById('theme-selector').addEventListener('change', (event) => {
   var isChecked = event.target.checked;
   localStorage.setItem('joshbatley.theme.changed', isChecked.toString());
