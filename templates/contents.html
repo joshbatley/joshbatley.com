@@ -21,8 +21,8 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" defer>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      var storedState = localStorage.getItem('joshbatley.theme.changed');
-      var isChecked = storedState === null ? false : storedState === 'true';
+      const storedState = localStorage.getItem('joshbatley.theme.changed');
+      const isChecked = storedState === null ? false : storedState === 'true';
       document.getElementById('theme-selector').checked = isChecked;
     });
   </script>
