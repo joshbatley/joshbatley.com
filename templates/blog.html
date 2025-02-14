@@ -20,16 +20,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" defer>
   <script>
-
     document.addEventListener('DOMContentLoaded', function () {
       const storedState = localStorage.getItem('joshbatley.theme.changed');
       const isChecked = storedState === null ? false : storedState === 'true';
       const preferDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       document.getElementById('theme-selector').checked = isChecked;
-      updateCodeHightlighting(isChecked ? !preferDark : preferDark);
     });
-
-
   </script>
 
 </head>
