@@ -17,7 +17,9 @@ const pageTitleBase = '| Josh Batley - Software Engineer';
 
 const blogTemplate = path.join(templatePath, '/blog.html');
 const contentsTemplate = path.join(templatePath, '/contents.html');
-const converter = new showdown.Converter();
+const converter = new showdown.Converter({
+  openLinksInNewWindow: true,
+});
 
 class PostBuilder {
   constructor(file, data, isHtmlData) {
