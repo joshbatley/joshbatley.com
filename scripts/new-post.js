@@ -20,7 +20,7 @@ function getTitle() {
     console.error(RED + 'Error: The --name argument is required.');
     return;
   }
-  return title.toString();
+  return title.toString().toLowerCase();
 }
 
 function stringIsEmpty(str) {
