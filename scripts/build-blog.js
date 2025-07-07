@@ -181,6 +181,12 @@ function generateStaticUrlsSitemap() {
     <lastmod>${generateDate()}</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
+  </url>
+   <url>
+    <loc>${baseUrl}404</loc>
+    <lastmod>${generateDate()}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
   </url>`;
 }
 
