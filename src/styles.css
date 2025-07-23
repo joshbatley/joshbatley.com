@@ -8,21 +8,21 @@
 */
 @media (prefers-color-scheme: dark) {
   :root {
-    --text: hsl(0, 0%, 98%);
-    --background: hsl(240, 10%, 3.9%);
-    --border: hsl(240, 3.7%, 15.9%);
-    --hover: hsl(240, 4%, 16%);
-    --muted: hsl(240, 5%, 64.9%);
-    --card: hsl(240 4% 10%);
+    --text: hsl(0, 0%, 95%);
+    --background: hsl(220, 15%, 10%);
+    --border: hsl(220, 5%, 20%);
+    --hover: hsl(220, 5%, 20%);
+    --muted: hsl(210, 10%, 40%);
+    --card: hsl(220, 15%, 10%)
   }
 
   body:has(input:checked) {
-    --text: hsl(240, 10%, 3.9%);
+    --text: hsl(210, 15%, 20%);
     --background: hsl(0, 0%, 100%);
-    --border: hsl(240, 5.9%, 90%);
-    --hover: hsl(240, 5%, 96%);
-    --muted: hsl(240, 3.8%, 46.1%);
-    --card: hsl(0, 0%, 98%);
+    --border: hsl(210, 16%, 90%);
+    --hover: hsl(210, 20%, 95%);
+    --muted: hsl(210, 10%, 40%);
+    --card: hsl(0, 0%, 100%);
   }
 
   .hidden:checked~.sun {

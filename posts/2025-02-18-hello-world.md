@@ -24,9 +24,9 @@ I am developing a game engine using Rust. This project is my gateway to masterin
 
 This project involves a multi-language monorepo that simulates live payment data. It's designed to help me learn how to build services from scratch that handle production-like data and throughput. It also provides a flexible environment to add or modify services, essentially creating a sandbox for developing a suite of tools and APIs. This is my playground for experimenting with new tools, languages, and packages.
 
-### [Edgmont UI](https://github.com/joshbatley/edgmont-ui)
+### [Muffled UI](https://github.com/joshbatley/muffled-ui)
 
-Edgmont UI is an ongoing project where I'm developing a React-based UI library. Currently, it supports web applications and can be extended to native desktop via Electron and other such tools. Plans are in place to expand into mobile applications using React Native.
+Muffled UI is an ongoing project where I'm developing a React-based UI library. Currently, it supports web applications and can be extended to native desktop via Electron and other such tools. Plans are in place to expand into mobile applications using React Native.
 
 ### [Project Learning](https://github.com/joshbatley/projects)
 
