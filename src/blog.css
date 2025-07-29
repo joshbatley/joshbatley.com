@@ -52,14 +52,13 @@
 .header .link {
   color: var(--text);
   letter-spacing: 2px;
-  padding: 8px 12px;
+  padding: 8px;
   display: inline-flex;
   align-items: center;
-  height: 20px;
   font-weight: 500;
   opacity: 1;
   cursor: pointer;
-  border-radius: 6px;
+  border-radius: var(--radii);
 }
 
 .header .link:hover {
@@ -104,7 +103,7 @@
   padding: 8px 12px;
   background: var(--card);
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: var(--radii);
   transition: opacity 50ms ease-in;
   margin: 0 0 20px;
 }
@@ -191,7 +190,7 @@
 .blog-content blockquote {
   background: var(--card);
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: var(--radii);
   margin: 0;
   padding: 0px 16px;
 }
@@ -217,7 +216,7 @@
 
 .contact .links {
   display: inline-flex;
-  gap: 5px;
+  gap: 8px;
   align-items: center;
   justify-content: center;
 }
@@ -225,16 +224,15 @@
 .contact .link {
   color: var(--text);
   letter-spacing: 2px;
-  padding: 8px 12px;
+  padding: 8px 8px;
   display: inline-flex;
   align-items: center;
-  height: 20px;
   font-weight: 500;
   opacity: 1;
-  border-radius: 6px;
+  border-radius: var(--radii);
 }
 
-.contact .links:hover {
+.contact .link:hover {
   background: var(--hover);
 }
 
